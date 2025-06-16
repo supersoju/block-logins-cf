@@ -54,4 +54,4 @@ MIT
 ---
 
 **Contributions welcome!**  
-Open an issue or PR on [GitHub](https://github.com/yourusername/block-logins-cf).
+Open an issue or PR on [GitHub](https://github.com/supersoju/block-logins-cf).
