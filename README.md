@@ -49,7 +49,7 @@ A: API tokens are recommended for security and are required for the verification
 
 ## License
 
-MIT
+GNU General Public License v2.0 or later
 
 ---
 

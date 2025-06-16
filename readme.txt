@@ -5,7 +5,7 @@ Requires at least: 5.0
 Tested up to: 6.5
 Requires PHP: 7.2
 Stable tag: 1.0
-License: MIT
+License: GPLv2 or later
 
 Block brute-force login attempts by integrating with Cloudflare’s firewall. Automatically block IPs after repeated failed logins, manage blocks and whitelists from the admin, and keep your site secure.
 
@@ -55,4 +55,4 @@ First release.
 
 == License ==
 
-MIT
+GNU General Public License v2.0 or later
