@@ -6,13 +6,13 @@
  * Version: 1.0
  * Author: supersoju
  * Author URI: https://supersoju.com
+ * Tested up to: 6.8
  * License: GNU General Public License v2 or later
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
- * Text Domain: block-logins-cf
+ * Text Domain: block-logins-with-cloudflare
  * Requires at least: 6.0
  * Requires PHP: 7.4
  * Tags: security, cloudflare, login, block, firewall
- * Tested up to: 6.8.1
  */
 
 if (!defined('ABSPATH')) {
