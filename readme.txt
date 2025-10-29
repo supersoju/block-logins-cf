@@ -1,13 +1,13 @@
 === Block Logins with Cloudflare ===
 Contributors: supersoju
-Tags: security, cloudflare, login, brute force, firewall, block, ip
-Requires at least: 5.0
+Tags: security, cloudflare, login, firewall, brute-force
+Requires at least: 6.0
 Tested up to: 6.8
-Requires PHP: 7.2
+Requires PHP: 7.4
 Stable tag: 1.0
-License: GPLv2 or later
+License: GPL-2.0-or-later
 
-Block brute-force login attempts by integrating with Cloudflare’s firewall. Automatically block IPs after repeated failed logins, manage blocks and whitelists from the admin, and keep your site secure.
+Block brute-force login attempts by integrating with Cloudflare's firewall to automatically block IPs after failed logins.
 
 == Description ==
 
@@ -19,6 +19,39 @@ Block brute-force login attempts by integrating with Cloudflare’s firewall. Au
 - View and manually unblock blocked IPs from the admin
 - Secure settings page with Cloudflare API token validation
 - Hourly cron job for automatic maintenance
+
+== External Services ==
+
+This plugin relies on the **Cloudflare API** to function. It communicates with Cloudflare's external servers to block IP addresses at the firewall level.
+
+**What is the Cloudflare API and what is it used for?**
+The Cloudflare API is a RESTful service provided by Cloudflare, Inc. that allows programmatic management of Cloudflare firewall rules. This plugin uses it to automatically block and unblock IP addresses based on failed login attempts.
+
+**What data is sent and when?**
+The plugin sends the following data to Cloudflare's API servers:
+
+1. **During settings validation** (when you save Cloudflare credentials):
+   - Your Cloudflare API token (for verification)
+   - Endpoint: `https://api.cloudflare.com/client/v4/user/tokens/verify`
+
+2. **When blocking an IP** (after failed login threshold is reached):
+   - The IP address to be blocked
+   - Your Cloudflare email address and API key/token
+   - Your Cloudflare Zone ID
+   - A note describing the reason for the block
+   - Endpoint: `https://api.cloudflare.com/client/v4/zones/{zone_id}/firewall/access_rules/rules`
+
+No personally identifiable information about your WordPress users is transmitted. Only IP addresses of failed login attempts are sent to Cloudflare.
+
+**Service provider information:**
+- Service: Cloudflare API
+- Provider: Cloudflare, Inc.
+- Terms of Service: https://www.cloudflare.com/terms/
+- Privacy Policy: https://www.cloudflare.com/privacypolicy/
+- API Documentation: https://developers.cloudflare.com/api/
+
+**Required for functionality:**
+This plugin requires a Cloudflare account and will not function without valid Cloudflare API credentials. The external API calls are essential to the plugin's core functionality.
 
 == Installation ==
 
@@ -55,4 +88,4 @@ First release.
 
 == License ==
 
-GNU General Public License v2.0 or later
+GNU General Public License v2 or later
